@@ -1,0 +1,22 @@
+{
+  "name": "Airbnb Extension",
+  "description": "Recognizes which properties are available for part ownership",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "tabs", "activeTab", "notifications", "scripting"],
+  "host_permissions": ["https://*/"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/airbnb_icon.png",
+    "default_title": "Token Informer"
+  },
+  "content_scripts": [
+   {
+     "matches": ["https://airbnb.com/*"],
+     "js": ["alert_script.js"]
+   }
+ ]
+}
