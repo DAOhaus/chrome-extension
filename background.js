@@ -12,9 +12,23 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 	if (changeInfo.url.includes(PROPERTY1_PAGE) ||
 		changeInfo.url.includes(PROPERTY2_PAGE) ||
 		changeInfo.url.includes(PROPERTY3_PAGE)) {
-		chrome.scripting.executeScript({
-      		target: {tabId: tabId},
-      		files: ['alert_script.js'],
-    	});
+		var notificationOptions = {
+			type: 'basic',
+    		title: 'Airbnb Notification',
+    		message: 'You can gain part ownership in this property!',
+    		priority: 2,
+    		iconUrl: '/images/airbnb_icon.png',
+    		buttons: [
+    			{
+        			title: 'Proceed'
+    			},
+    			{
+        			title: 'No Thanks'
+    			}
+			]
+		};
+		chrome.notifications.create('notify1', notificationOptions, function(id) { 
+			console.log(`notification created with id ${id}`); 
+		});
 	}
 });

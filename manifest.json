@@ -12,11 +12,5 @@
     "default_popup": "popup.html",
     "default_icon": "images/airbnb_icon.png",
     "default_title": "Token Informer"
-  },
-  "content_scripts": [
-   {
-     "matches": ["https://airbnb.com/*"],
-     "js": ["alert_script.js"]
-   }
- ]
+  }
 }

@@ -1,1 +1,0 @@
-alert("You can gain part ownership in this property!");
